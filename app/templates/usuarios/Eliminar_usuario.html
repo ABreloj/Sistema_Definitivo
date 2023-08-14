@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Usuarios</title>
+    <style>
+        .encabezado {
+            display: flex;
+        }
+
+        img {
+            width: 110px;
+            height: 110px;
+            margin-right: 0%;
+            margin-left: 400px;
+        }
+
+        .sistema {
+            background-color: aquamarine;
+            border: 2px solid gray;
+            text-align: center;
+            padding: 20px 60px;
+            margin-left: 200px;
+        }
+
+        .cancelar {
+            padding: 0 0;
+            margin-left: 1100px;
+            color: red;
+            margin-bottom: 30px;
+            color: black;
+            width: 110px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: bold;
+            height: 59px;
+            border: 1px solid red;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Roboto';
+            margin-bottom: 10px;
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .form {
+            width: 400px;
+        }
+
+        .form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #b5b5b5;
+            border: none;
+            color: black;
+            cursor: pointer;
+        }
+
+        .botones {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .atras {
+            margin-bottom: 30px;
+            color: black;
+            width: 110px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: bold;
+            height: 59px;
+            margin-bottom: 30px;
+            background-color: #b5b5b5;
+        }
+
+        .siguiente {
+            margin-bottom: 30px;
+            margin-left: 500px;
+            color: black;
+            width: 110px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: bold;
+            height: 59px;
+            margin-bottom: 30px;
+            background-color: #b5b5b5;
+        }
+
+        @media (max-width: 768px) {
+    .formulario {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .encabezado {
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
+    img {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .sistema {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    h1 {
+        margin-left: 0;
+    }
+
+    .usuario,
+    .contraseña {
+        margin-left: 0;
+    }
+
+    .botones {
+        flex-direction: column;
+    }
+
+    .iniciar {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+}    
+
+    </style>
+</head>
+<body>
+    <span class="encabezado">
+        <img src="/static/logo.jpg" alt="">
+        <p class="sistema">Sistema Control de Punto de Venta Abarrotes "Flores"</p>
+    </span>
+    <button class="cancelar"><a href="http://127.0.0.1:5500/app/templates/rol/Inicio%20sesi%C3%B3n.html">Cerrar sesión</a></button>
+    
+    <h1>Eliminar Usuarios</h1>
+
+    <div class="form-container">
+        <form class="form" action="/usuarios/usuario_eliminado" method="POST">
+            <input type="text" placeholder="ID" name="id">
+            <button type="submit">Eliminar</button>
+        </form>
+    </div>
+
+    
+
+    <div class="botones">
+        <button class="atras"><a href="http://127.0.0.1:5000/apartados/apartado_usuario_administrador">Atras</a></button>
+        <button class="siguiente"><a href="http://127.0.0.1:5000/usuarios/consultar_usuarios">Siguiente</a></button>
+    </div>
+</body>
+</html>

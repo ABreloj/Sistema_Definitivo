@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Producto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+
+body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+        }
+
+        .encabezado {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: aquamarine;
+            padding: 15px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            width: 120px;
+            height: 120px;
+            margin-right: 20px;
+        }
+
+        .sistema {
+            background-color: aquamarine;
+            text-align: center;
+            padding: 10px 20px;
+            font-family: 'Lobster';
+            border-radius: 5px;
+            font-size: 32px;
+        }
+
+        .cancelar {
+            color: white;
+            padding: 10px 20px;
+            background-color: red;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .cancelar:hover {
+            background-color: #d9534f;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        .table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #d0f0c0;
+            color: #333;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f0f0f0;
+        }
+
+        tr:hover {
+            background-color: #e0e0e0;
+        }
+
+        .botones {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .regresar {
+            margin-bottom: 30px;
+            color: black;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: bold;
+            height: 59px;
+            width: 110px;
+            background-color: #b5b5b5;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            line-height: 59px;
+        }
+
+        .acciones-form {
+            display: flex;
+            align-items: center;
+        }
+
+        .acciones-form button {
+            margin: 0 5px;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .acciones-form button.editar {
+        background-color: #2980b9;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .acciones-form button.editar:hover {
+        background-color: #216799;
+    }
+
+        .acciones-form button.eliminar {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .acciones-form button.eliminar:hover {
+            background-color: #c0392b;
+        }
+
+        .acciones-form a.editar {
+        display: inline-block;
+        padding: 5px 5px;
+        background-color: #2980b9;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        text-decoration: none;
+    }
+
+
+    .acciones-form a.editar:hover {
+        background-color: #216799;
+    }
+
+        .pie-de-pagina {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: aquamarine;
+            text-align: center;
+            padding: 10px;
+            color: black;
+            font-size: 23px;
+            font-family: 'Lobster';
+        }
+    </style>
+</head>
+<body>
+
+    <span class="encabezado">
+        <img src="/static/logo.jpg" alt="">
+        <p class="sistema">Sistema Control de Punto de Venta Abarrotes "Flores"</p>
+        <a href="{{ url_for('iniciar_sesion') }}" class="cancelar">Cerrar sesión</a>
+    </span>
+    
+    
+    
+
+    <h1>Consultar Producto</h1>
+
+    <div>
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Marca</th>
+                <th>Categoria</th>
+                <th>Cantidad</th>
+                <th>Caducidad </th>
+                <th>Acciones</th>
+            </tr>
+            {% for producto in productos %}
+            <tr>
+                <td>{{ producto[0] }}</td>
+                <td>{{ producto[1] }}</td>
+                <td>{{ producto[2] }}</td>
+                <td>{{ producto[3] }}</td>
+                <td>{{ producto[4] }}</td>
+                <td>{{ producto[5] }}</td>
+                <td>{{ producto[6] }}</td>
+                <td>{{ producto[7] }}</td>
+                <td>{{ producto[8] }}</td>
+                <td class="acciones-form">
+                    <button class="eliminar" type="submit" name="accion" value="eliminar">Eliminar</button>
+                    <a class="editar" href="{{ url_for('editar_producto', id=producto[0]) }}">Editar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div class="botones">
+        <a href="{{ url_for('apartado_inventario') }}" class="regresar">Atras</a>
+    </div>
+
+    <div class="pie-de-pagina">
+        &copy; Copyright
+    </div>
+</body>
+</html>

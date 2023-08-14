@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>usuario-empleado</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+        }
+
+        .encabezado {
+            background-color: aquamarine;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            width: 120px;
+            height: 120px;
+            margin-right: 20px;
+        }
+
+        .sistema {
+            background-color: aquamarine;
+            text-align: center;
+            padding: 10px 20px;
+            font-family: 'Lobster';
+            border-radius: 5px;
+            font-size: 32px;
+        }
+
+        .cancelar {
+            color: white;
+            padding: 10px 20px;
+            background-color: red;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .cancelar:hover {
+            background-color: #d9534f;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Roboto';
+        }
+
+        .botones {
+            margin-top: 80px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Para que los botones se ajusten en filas */
+        }
+
+        a.boton {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 25px; /* Aumentamos el padding para hacer los botones más grandes */
+            font-size: 18px; /* Aumentamos el tamaño de fuente */
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            background-color: #3498db;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+        }
+
+        a.boton:hover {
+            background-color: #2980b9;
+            background-color: #2580a3;
+            transform: translateY(-4px); 
+            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2); 
+        }
+
+        @media (max-width: 768px) {
+            .encabezado {
+                flex-direction: column;
+                margin-bottom: 10px;
+            }
+
+            img {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .sistema {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            h1 {
+                margin-left: 0;
+            }
+
+            .botones {
+                flex-direction: column;
+            }
+
+            .cancelar,
+            .boton {
+                margin-left: 0; 
+                margin-right: 0; 
+            }
+        }
+        .pie-de-pagina {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: aquamarine;
+            text-align: center;
+            padding: 10px;
+            color: black;
+            font-size: 23px;
+            font-family: 'Lobster';
+        }
+    </style>
+</head>
+<body>
+    <div class="encabezado">
+        <img src="/static/logo.jpg" alt="">
+        <p class="sistema">Sistema Control de Punto de Venta Abarrotes "Flores"</p>
+        <a href="{{ url_for('iniciar_sesion') }}" class="cancelar">Cerrar sesión</a>
+    </div>
+
+    <h1><em>Rol-Empleado</em></h1>
+
+    <div class="botones">
+        <a href="{{ url_for('crear_venta') }}" class="boton">Venta</a>
+        <a href="{{ url_for('corte_de_caja') }}" class="boton">Corte de Caja</a>
+    </div>
+
+    <div class="pie-de-pagina">
+        &copy; Copyright MAK
+    </div>
+</body>
+</html>

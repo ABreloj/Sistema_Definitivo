@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Monto</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&family=Roboto&display=swap" rel="stylesheet">
+
+    <style>
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+        }
+
+        .encabezado{
+            display: flex;
+        }
+
+        img{
+            width: 110px;
+            height: 110px;
+            margin-right: 0%;
+            margin-left: 400px; 
+        }
+
+        .sistema{
+            background-color: aquamarine;  
+            border: 2px solid gray;
+            text-align: center;
+            padding: 20px 60px;
+            margin-left: 200px;
+            font-size: 32px;
+        }
+
+        .cancelar{
+            padding: 0 0;
+            margin-left: 1100px; 
+            color: red;  
+            margin-bottom: 30px;
+            color: black;
+            width: 110px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: bold;
+            height: 59px;
+            border: 1px solid red;
+        }
+
+        h1{
+            text-align: center;
+            font-family: 'Roboto';
+        }
+
+        div{
+            display: flex;
+        }
+
+        .total{
+            margin-left: 700px;
+            margin-right: 250px;
+            border: 1px solid black;
+            padding: 17px 17px;
+        }
+        .efectivo{
+            margin-left: 700px;
+            margin-right: 229px;
+            border: 1px solid black;
+            padding: 17px 17px;
+        }
+        .cambio{
+            margin-left: 700px;
+            margin-right: 230px;
+            border: 1px solid black;
+            padding: 17px 17px;
+        }
+
+        input{
+            width: 140px;
+            height: 25px;
+        }
+
+        .pago1{
+            margin-left: 600px;
+            padding: 13px;
+            border: 1px solid black;
+        }
+
+        .pago2{
+            margin-left: 300px;
+            padding: 13px;
+            border: 1px solid black;
+        }
+
+        .pago3{
+            margin-left: 300px;
+            padding: 13px;
+            border: 1px solid black;
+        }
+
+        .atras{
+            margin-left: 1400px;
+            margin-top: 80px;
+            margin-bottom: 30px;
+            color: black;
+            width: 110px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: bold;
+            height: 59px;
+            background-color: #b5b5b5;
+        }
+
+        @media (max-width: 768px) {
+    .formulario {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .encabezado {
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
+    img {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .sistema {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    h1 {
+        margin-left: 0;
+    }
+
+    .usuario,
+    .contraseña {
+        margin-left: 0;
+    }
+
+    .botones {
+        flex-direction: column;
+    }
+
+    .iniciar {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+}
+
+    </style>
+
+
+</head>
+<body>
+
+    <span class="encabezado">
+        <img src="/app/static/logo.jpg" alt="">
+        <p class="sistema">Sistema Control de Punto de Venta Abarrotes "Flores"</p>       
+    </span>
+    <button class="cancelar"><a href="">Cerrar sesión</a></button>
+    
+    <h1>Calcular Monto de Devolución</h1>
+
+    <div>
+        <p class="total">Total</p>
+        <input type="text" placeholder="$00.00">
+    </div>
+    <br>
+    <br>
+
+
+    <div>
+        <p class="efectivo">Efectivo</p>
+        <input type="text" placeholder="$00.00">
+    </div>
+    <br>
+    <br>
+
+    <div>
+        <p class="cambio">Cambio</p>
+        <input type="number">
+    </div>
+    <br>
+    <br>
+
+
+    <div>
+        <p class="pago1">Efectivo</p>
+        <p class="pago2">Tarjeta</p>
+        <p class="pago3">Vales</p>
+    </div>
+
+    <br>
+    <button class="atras"><a href="">Atras</a></button>
+
+</body>
+</html>

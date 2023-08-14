@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <title>Apartado Usuarios</title>
+    
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+        }
+
+        .encabezado {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: aquamarine;
+            padding: 15px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            width: 120px;
+            height: 120px;
+            margin-right: 20px;
+        }
+
+        .sistema {
+            background-color: aquamarine;
+            text-align: center;
+            padding: 10px 20px;
+            font-family: 'Lobster';
+            border-radius: 5px;
+            font-size: 32px;
+        }
+
+        .cancelar {
+            color: white;
+            padding: 10px 20px;
+            background-color: red;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .cancelar:hover {
+            background-color: #d9534f;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        .botones {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .boton {
+            color: white;
+            width: 250px;
+            cursor: pointer;
+            font-size: 21px;
+            font-weight: bold;
+            height: 100px;
+            margin: 0 10px;
+            background-color: #3498db;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+        }
+
+        .boton:hover {
+            background-color: #2980b9;
+            background-color: #2580a3;
+            transform: translateY(-4px); 
+            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .regresar {
+            margin: 0 auto; 
+            margin-bottom: 30px;
+            color: black;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: bold;
+            height: 59px;
+            width: 110px;
+            background-color: #b5b5b5;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .pie-de-pagina {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: aquamarine;
+            text-align: center;
+            padding: 10px;
+            color: black;
+            font-size: 23px;
+            border-top: 1px solid #ccc;
+            font-family: 'Lobster';
+        }
+
+        @media (max-width: 768px) {
+            .encabezado {
+                flex-direction: column;
+            }
+
+            img {
+                margin: 0;
+                margin-bottom: 10px;
+            }
+
+            .sistema {
+                margin: 10px 0;
+            }
+
+            .cancelar {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="encabezado">
+        <img src="/static/logo.jpg" alt="">
+        <p class="sistema">Sistema Control de Punto de Venta Abarrotes "Flores"</p>
+        <a href="{{ url_for('iniciar_sesion') }}" class="cancelar">Cerrar sesión</a>
+    </div>
+
+    <h1><em>Rol - Administrador</em></h1>
+    <h1><em>Apartado Usuario</em></h1>
+
+    <div class="botones">
+        <a href="{{ url_for('consultar_usuarios') }}" class="boton">Ver usuarios</a>
+        <a href="{{ url_for('registro_usuarios') }}" class="boton">Registrar Usuarios</a>
+    </div>
+
+    <a href="{{ url_for('Usuario_administrador') }}" class="regresar">Regresar</a>
+
+    <div class="pie-de-pagina">
+        &copy; Copyright MAK
+    </div>
+</body>
+</html>

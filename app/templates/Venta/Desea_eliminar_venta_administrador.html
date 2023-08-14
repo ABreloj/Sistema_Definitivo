@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>¿Desea Editar Venta?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+        }
+
+        .encabezado {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: aquamarine;
+            padding: 15px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            width: 120px;
+            height: 120px;
+            margin-right: 20px;
+        }
+
+        .sistema {
+            background-color: aquamarine;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 32px;
+            border-radius: 5px;
+            flex: 1; /* Hace que el sistema ocupe todo el espacio disponible */
+            margin: 0 10px; /* Agrega un pequeño margen a los lados */
+            font-family: 'Lobster';
+            border-radius: 5px;
+        }
+
+        .cerrar {
+            color: white;
+            padding: 10px 20px;
+            background-color: red;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .cerrar:hover {
+            background-color: #d9534f;
+        }
+
+
+        .editar {
+            border: 2px solid black;
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .pregunta {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .botones {
+            display: flex;
+            justify-content: center;
+        }
+
+        .cancelar,
+        .aceptar {
+            padding: 8px 20px;
+            color: black;
+            width: 150px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 0 10px;
+            background-color: #b5b5b5;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+
+        .pie-de-pagina {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: aquamarine;
+            text-align: center;
+            padding: 10px;
+            color: black;
+            font-size: 23px;
+            font-family: 'Lobster';
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="encabezado">
+        <img src="/static/logo.jpg" alt="">
+        <p class="sistema">Sistema Control de Punto de Venta Abarrotes "Flores"</p>
+        <a href="{{ url_for('iniciar_sesion') }}" class="cerrar">Cerrar sesión</a>
+    </div>
+
+    <div class="editar">
+        <p class="pregunta">¿Desea eliminar la venta?</p>
+
+        <div class="botones">
+            <a href="{{ url_for('Usuario_administrador') }}" class="cancelar">Cancelar</a>
+            <a href="{{ url_for('eliminar_venta') }} " class="aceptar">Aceptar</a>
+        </div>
+    </div>
+
+    <div class="pie-de-pagina">
+        &copy; Copyright
+    </div>
+
+</body>
+</html>

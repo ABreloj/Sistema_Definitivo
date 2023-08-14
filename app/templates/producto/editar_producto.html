@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Producto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+        }
+
+        .encabezado {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: aquamarine;
+            padding: 15px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            width: 120px;
+            height: 120px;
+            margin-right: 20px;
+        }
+
+        .sistema {
+            background-color: aquamarine;
+            text-align: center;
+            padding: 10px 20px;
+            font-family: 'Lobster';
+            border-radius: 5px;
+            font-size: 32px;
+            font-family: 'Lobster';
+        }
+
+        .cancelar {
+            color: white;
+            padding: 10px 20px;
+            background-color: red;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .cancelar:hover {
+            background-color: #d9534f;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Roboto';
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .form {
+            width: 400px;
+            margin-top: 30px;
+        }
+
+        .form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .form select,
+        .form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #b5b5b5;
+            border: none;
+            color: black;
+            cursor: pointer;
+        }
+
+        .form select {
+            margin-bottom: 20px;
+        }
+
+        .botones {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .atras,
+        .siguiente {
+            margin-left: 10px;
+            margin-right: 10px;
+            color: black;
+            width: 150px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: bold;
+            height: 59px;
+            background-color: #b5b5b5;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pie-de-pagina {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: aquamarine;
+            text-align: center;
+            padding: 10px;
+            color: black;
+            font-size: 23px;
+            border-top: 1px solid #ccc;
+            font-family: 'Lobster';
+        }
+
+        @media (max-width: 600px) {
+        body {
+            font-size: 14px;
+        }
+
+        .encabezado {
+            padding: 10px;
+        }
+
+        .sistema {
+            font-size: 24px;
+        }
+
+        .cancelar {
+            padding: 8px 16px;
+            font-size: 12px;
+        }
+
+        .form-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form {
+            width: 100%;
+            max-width: 300px;
+            margin-top: 20px;
+        }
+
+    }
+</style>
+</head>
+<body>
+
+    <div class="encabezado">
+        <img src="/static/logo.jpg" alt="">
+        <p class="sistema">Sistema Control de Punto de Venta Abarrotes "Flores"</p>
+        <a href="{{ url_for('iniciar_sesion') }}" class="cancelar">Cerrar sesión</a>
+    </div>
+
+    <h1>Editar Productos</h1>
+    <div class="form-container">
+        <form class="form" action="/guardar_producto" method="POST">
+            <input type="date" placeholder="Caducidad" name="caducidad" value="{{ fecha_actual|safe }}" required>
+            <input type="text" placeholder="Nombre" name="nombre" id="nombre">
+            <input type="text" placeholder="Precio" name="precio">
+            <input type="text" placeholder="Marca" name="marca">
+            <select name="categoria" id="categoria">
+                <option value="Cervezas">Cervezas</option>
+                <option value="Frituras">Frituras</option>
+                <option value="Botellas">Botellas</option>
+                <option value="Refrescos">Refrescos</option>
+                <option value="Abarrotes">Abarrotes</option>
+            </select>
+            <input type="text" placeholder="Cantidad" name="cantidad">
+            <input type="text" placeholder="Total" name="total">
+            <button type="submit">Guardar</button>
+        </form>
+    </div>
+
+    <div class="botones">
+        <a href="{{ url_for('apartado_inventario') }}" class="atras">Atrás</a>
+        <a href="{{ url_for('consultar_producto') }}" class="siguiente">Siguiente</a>
+    </div>
+
+    <div class="pie-de-pagina">
+        &copy; Copyright MAK
+    </div>
+</body>
+</html>

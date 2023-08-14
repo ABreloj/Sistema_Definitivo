@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartado Cancelar Venta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: aquamarine;
+            margin: 0;
+            padding: 0;
+        }
+
+        .encabezado {
+            display: flex;
+            align-items: center;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+
+        img {
+            width: 80px;
+            height: 80px;
+            margin-right: 10px;
+        }
+
+        .sistema {
+            background-color: aquamarine;
+            font-size: 32px;
+            text-align: center;
+            padding: 20px 0;
+            margin: 20px auto;
+            width: 80%;
+            color: white;
+            font-family: 'Lobster';
+        }
+
+        .cancelar {
+            color: white;
+            background-color: #d9534f;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Roboto';
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .input-group p {
+            margin: 0;
+            width: 150px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .botones {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .atras,
+        .siguiente {
+            color: white;
+            background-color: #5bc0de;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .pie-pagina {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: aquamarine;
+            text-align: center;
+            padding: 10px;
+            color: black;
+            font-size: 23px;
+            font-family: 'Lobster';
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="encabezado">
+        <img src="/app/static/logo.jpg" alt="">
+        <p class="sistema">Sistema Control de Punto de Venta Abarrotes "Flores"</p>
+    </div>
+    <button class="cancelar"><a href="">Cerrar sesión</a></button>
+    
+    <h1><e>Rol-Administrador</e></h1>
+    <h1><e>Apartado Cancelar Venta</e></h1>
+
+    <div>
+
+        <form action="">
+
+            <div class="input-group">
+                <p>ID Venta</p>
+                <input type="text">
+            </div>
+
+            <div class="input-group">
+                <p>Fecha</p>
+                <input type="text">
+            </div>
+
+            <div class="input-group">
+                <p>Responsable</p>
+                <input type="text">
+            </div>
+
+            <div class="input-group">
+                <p>Sub-Total Venta</p>
+                <input type="text">
+            </div>
+
+            <div class="input-group">
+                <p>Total Venta</p>
+                <input type="text">
+            </div>
+
+            <div class="input-group">
+                <p>Administrador</p>
+                <input type="text">
+            </div>
+
+            <div class="input-group">
+                <p>Clave Administrador</p>
+                <input type="text" placeholder="Escribe aquí">
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="botones">
+        <a href="" class="atras">Atras</a>
+        <a href="" class="siguiente">Generar Ticket</a>
+    </div>
+
+    <div class="pie-pagina">
+        &copy; Copyright MAK
+    </div>
+    
+</body>
+</html>

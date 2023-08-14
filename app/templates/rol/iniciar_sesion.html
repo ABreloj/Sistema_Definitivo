@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio Sesión</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 50px; /* Espacio considerable */
+        }
+        .formulario {
+            background-color: white;
+            padding: 7% 10%; /* Espacio del formulario aumentado y ancho ajustado */
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
+            max-width: 450px; /* Ancho máximo */
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        .encabezado {
+            margin-bottom: 20px;
+        }
+        img {
+            width: 90px;
+            height: 90px;
+            margin-right: 10px;
+        }
+        .sistema {
+            background-color: aquamarine;
+            border: 2px solid gray;
+            text-align: center;
+            padding: 15px;
+            font-size: 20px;
+            font-family: 'Lobster';
+            border-radius: 5px;
+        }
+        h1 {
+            margin: 20px 0;
+            font-family: 'Roboto';
+            color: #333;
+        }
+        .usuario, .contraseña {
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            height: 50px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        .botones {
+            margin-top: 20px;
+        }
+        .iniciar {
+            color: white;
+            width: 100%;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            height: 50px;
+            background-color: #3498db;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .iniciar:hover {
+            background-color: #2980b9;
+        }
+        footer {
+            text-align: center;
+            background-color: aquamarine;
+            padding: 20px;
+            width: 100%;
+        }
+        .terminos-container {
+            max-height: 300px;
+            overflow: auto;
+            border: none;
+            padding: 10px;
+            background-color: aquamarine;
+            text-align: justify;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .terminos-container {
+                max-height: 150px;
+            }
+        }
+
+        .pie-de-pagina {
+            background-color: aquamarine;
+            text-align: center;
+            padding: 10px;
+            color: black;
+            font-size: 19px;
+            font-family: 'Lobster';
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="formulario">
+            <div class="encabezado">
+                <img src="static/logo.jpg" alt="">
+                <p class="sistema">Sistema Control de Punto de Venta "Abarrotes Flores"</p>
+            </div>
+            <h1>Iniciar Sesión</h1>
+            <form action="/iniciar_sesion" method="POST">
+                <input type="text" placeholder="Usuario" class="usuario" name="usuario" required>
+                <input type="password" placeholder="Contraseña" class="contraseña" name="contraseña" required>
+                <div class="botones">
+                    <button class="iniciar" type="submit">Iniciar Sesión</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="pie-de-pagina">
+        &copy; Copyright MAK
+        <br>
+        Bienvenido al Sistema de Control de Punto de Venta para Abarrotes “Flores”.
+        Antes de utilizar nuestro sitio web y aplicación, te invitamos a leer detenidamente los siguientes Términos y Condiciones.
+        Estos términos establecen los derechos y obligaciones entre los usuarios y el titular del sistema, Sergio Erick Galindo Flores.
+        Al acceder y utilizar nuestro sistema, aceptas estar legalmente vinculado por estos Términos y Condiciones.
+        Si no estás de acuerdo con alguna parte de estos términos, te recomendamos no utilizar nuestro sistema.
+    </div>
+</body>
+</html>

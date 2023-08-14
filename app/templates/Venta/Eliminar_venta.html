@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Eliminar Venta</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+        }
+
+        .encabezado {
+            background-color: aquamarine;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            width: 120px;
+            height: 120px;
+            margin-right: 20px;
+        }
+
+        .sistema {
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 32px;
+            border-radius: 5px;
+            flex: 1;
+            margin: 0 10px;
+            font-family: 'Lobster';
+        }
+
+        .cancelar {
+            padding: 8px 20px;
+            color: white;
+            background-color: #d9534f;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .cancelar:hover {
+            background-color: #c9302c;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            margin-top: 20px;
+            font-size: 36px;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .form {
+            width: 400px;
+        }
+
+        .form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #b5b5b5;
+            border: none;
+            color: black;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .form button:hover {
+            background-color: #ccc;
+        }
+
+        .table-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 70%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .botones {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .atras,
+        .siguiente {
+            padding: 8px 20px;
+            color: black;
+            width: 150px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: bold;
+            margin: 0 10px;
+            background-color: #b5b5b5;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+
+        .atras:hover,
+        .siguiente:hover {
+            background-color: #ccc;
+        }
+
+        @media (max-width: 768px) {
+            .encabezado {
+                flex-direction: column;
+                margin-bottom: 10px;
+            }
+
+            img {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .sistema {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            h1 {
+                margin-left: 0;
+            }
+        }
+
+        .pie-de-pagina {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: aquamarine;
+            text-align: center;
+            padding: 10px;
+            color: black;
+            font-size: 23px;
+            border-top: 1px solid #ccc;
+            font-family: 'Lobster';
+        }
+    </style>
+</head>
+<body>
+
+    <div class="encabezado">
+        <img src="/static/logo.jpg" alt="">
+        <p class="sistema">Sistema Control de Punto de Venta Abarrotes "Flores"</p>
+        <a href="{{ url_for('iniciar_sesion') }}" class="cancelar">Cerrar sesión</a>
+    </div>
+
+    <h1>Eliminar Venta</h1>
+
+    <div class="container">
+        <form class="form" action="/venta/venta_eliminada" method="POST">
+            <input type="text" placeholder="ID" name="id">
+            <button type="submit">Eliminar Venta</button>
+        </form>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>ID Venta</th>
+                <th>Fecha</th>
+                <th>ID Producto</th>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Total</th>
+            </tr>
+            {% for venta in ventas %}
+            <tr>
+                <td>{{ venta['id'] }}</td>
+                <td>{{ venta['fecha'] }}</td>
+                <td>{{ venta['id_producto'] }}</td>
+                <td>{{ venta['producto'] }}</td>
+                <td>{{ venta['precio'] }}</td>
+                <td>{{ venta['cantidad'] }}</td>
+                <td>{{ venta['total'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div class="botones">
+        <a href="http://127.0.0.1:5000/Usuario_empleado" class="atras">Atras</a>
+    </div>
+
+    <div class="pie-de-pagina">
+        &copy; Copyright MAK
+    </div>
+
+</body>
+</html>

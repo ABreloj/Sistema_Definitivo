@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Easter Egg - M.A.K</title>
+
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 20px; /* Espacio interno */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        h1.title {
+            font-size: 36px;
+            color: #333;
+        }
+
+        h2.subtitle {
+            font-size: 24px;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        img {
+            width: 120px;
+            height: 120px;
+            margin-right: 10px;
+            border-radius: 50%;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .easter-egg-message {
+            background-color: #f8f8f8;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .nombre {
+            font-size: 23px;
+            font-family: 'Lobster', cursive;
+            margin-top: 0;
+            margin-bottom: 10px;
+            align-self: flex-start;
+        }
+
+        .comentario {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .regresar {
+            margin-top: 30px;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            height: 50px;
+            width: 200px;
+            background-color: aquamarine; /* Naranja */
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .regresar:hover {
+            background-color: aquamarine; /* Naranja más claro */
+            color: #333; /* Texto más oscuro */
+        }
+    </style>
+</head>
+<body>
+    <div class="easter-egg-message">
+        <img src="static/MAK.jpg" alt="M.A.K Logo">
+        <h1 class="title">¡Felicidades por Encontrar Nuestro Easter Egg!</h1>
+        <h2 class="subtitle">Gracias por confiar en nosotros y permitirnos ayudar en la creación de su sistema de "control de punto de venta para abarrotes Flores".</h2>
+
+        <div class="nombre">Mariel.-</div>
+        <p class="comentario">"Creo que fue complicado por la poca información que nos brindaban algunos profesores y también que no explicaban"</p>
+
+        <div class="nombre">Abraham.-</div>
+        <p class="comentario">"Fue un gran reto, pero con nuestro esfuerzo pudimos superar el reto"</p>
+
+        <div class="nombre">Karen.-</div>
+        <p class="comentario">"Un poco dificil por la preocupación que no saliera o que no llegáramos a tiempo"</p>
+
+        <p>Todo el equipo de M.A.K. espera que el sistema sea de su agrado y haya cumplido sus espectativas, con cariño Mariel,Abraham y Karen.</p>
+    </div>
+
+    <a href="{{ url_for('apartado_inventario') }}" class="regresar">Volver a la Experiencia</a>
+</body>
+</html>
