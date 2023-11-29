@@ -8,7 +8,7 @@ app.config['SECRET_KEY']='My secret key'
 def get_connection():
     mydb = mysql.connector.connect(
         host="localhost",
-        user="MAK",
+        user="root",
         password="",
         database="integradora"
     )
@@ -280,60 +280,69 @@ def guardar_producto():
         return 'Método no permitido'
 
 #consutlar producto
-@app.route('/producto/consultar_producto')
+@app.route('/producto/consultar_producto', methods=['GET', 'POST'])
 def consultar_producto():
-    # Crear una conexión a la base de datos
-    mydb = get_connection()
-    cursor = mydb.cursor()
+    if request.method == 'POST':
+            # Obtener el ID del usuario
+            id = request.form['id']
+            accion = request.form['accion']
+            mensaje = ''  # Inicializar la variable mensaje
 
-    # Obtener los productos de la base de datos
-    cursor.execute("SELECT * FROM productos")
-    productos = cursor.fetchall()
+            # Crear una conexión a la base de datos
+            mydb = get_connection()
+            cursor = mydb.cursor()
 
-    # Cerrar la conexión a la base de datos
-    cursor.close()
-    mydb.close()
+            if accion == 'eliminar':
+                # Eliminar el pruducto de la tabla
+                sql = "DELETE FROM productos WHERE id=%s"
+                val = (id,)
+                cursor.execute(sql, val)
+                mydb.commit()
+                mensaje = 'Usuario eliminado exitosamente'
+            elif accion == 'editar':
+                # Aquí podrías redirigir a una página de edición con el ID del usuario
+                # por ejemplo: return redirect(f'/usuarios/editar_usuario/{id}')
+                pass  # Agrega el bloque de código para editar aquí
 
-    return render_template('producto/Consultar_producto.html', productos=productos)
+            # Obtener todos los usuarios de la tabla
+            cursor.execute("SELECT * FROM productos")
+            productos = cursor.fetchall()
+
+            # Cerrar la conexión a la base de datos
+            cursor.close()
+            mydb.close()
+
+            return render_template('producto/consultar_producto.html', productos=productos, mensaje=mensaje)
+
+    else:
+            # Crear una conexión a la base de datos
+            mydb = get_connection()
+            cursor = mydb.cursor()
+
+            # Obtener todos los usuarios de la tabla
+            cursor.execute("SELECT * FROM productos")
+            productos = cursor.fetchall()
+
+            # Cerrar la conexión a la base de datos
+            cursor.close()
+            mydb.close()
+
+            return render_template('producto/Consultar_producto.html', productos=productos)
 
 
 
 
 
 #eliminar producto
-@app.route('/producto/eliminar_producto')
-def eliminar_producto():
-    return render_template('producto/eliminar_producto.html')
 
-@app.route('/producto/producto_eliminado', methods=['POST'])
-def producto_eliminado():
-    if request.method == 'POST':
-        # Obtener el ID del usuario a eliminar
-        id = request.form['id']
 
-        # Crear una conexión a la base de datos
-        mydb = get_connection()
-        cursor = mydb.cursor()
-
-        # Eliminar el usuario de la tabla
-        sql = "DELETE FROM productos WHERE id=%s"
-        val = (id,)
-        cursor.execute(sql, val)
-        mydb.commit()
-
-        # Cerrar la conexión a la base de datos
-        cursor.close()
-        mydb.close()
-
-        return render_template('producto/Eliminar_producto.html', mensaje='Producto eliminado exitosamente')
-    else:
-        return 'Método no permitido'
 
 
 #editar producto
-@app.route('/producto/editar_producto')
+@app.route('/producto/editar_producto', methods=['GET'])
 def editar_producto():
     return render_template('producto/editar_producto.html')
+
 
 
 @app.route('/producto/producto_editado', methods=['POST'])

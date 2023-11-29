@@ -170,9 +170,9 @@
 
     <h1>Editar Productos</h1>
     <div class="form-container">
-        <form class="form" action="/guardar_producto" method="POST">
-            <input type="date" placeholder="Caducidad" name="caducidad" value="{{ fecha_actual|safe }}" required>
-            <input type="text" placeholder="Nombre" name="nombre" id="nombre">
+        <form class="form" action="/producto/producto_editado" method="POST">
+            <input type="date" placeholder="Caducidad" name="caducidad" required>
+            <input type="text" placeholder="Nombre" name="nombre">
             <input type="text" placeholder="Precio" name="precio">
             <input type="text" placeholder="Marca" name="marca">
             <select name="categoria" id="categoria">
@@ -183,13 +183,14 @@
                 <option value="Abarrotes">Abarrotes</option>
             </select>
             <input type="text" placeholder="Cantidad" name="cantidad">
-            <input type="text" placeholder="Total" name="total">
             <button type="submit">Guardar</button>
         </form>
+        </form>
+        
     </div>
-
+    
     <div class="botones">
-        <a href="{{ url_for('apartado_inventario') }}" class="atras">Atrás</a>
+        <a href="{{ url_for('consultar_producto') }}" class="atras">Atrás</a>
         <a href="{{ url_for('consultar_producto') }}" class="siguiente">Siguiente</a>
     </div>
 

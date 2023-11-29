@@ -200,7 +200,7 @@ body {
                 <th>Marca</th>
                 <th>Categoria</th>
                 <th>Cantidad</th>
-                <th>Caducidad </th>
+                <th>Caducidad</th>
                 <th>Acciones</th>
             </tr>
             {% for producto in productos %}
@@ -212,11 +212,14 @@ body {
                 <td>{{ producto[4] }}</td>
                 <td>{{ producto[5] }}</td>
                 <td>{{ producto[6] }}</td>
-                <td>{{ producto[7] }}</td>
-                <td>{{ producto[8] }}</td>
                 <td class="acciones-form">
-                    <button class="eliminar" type="submit" name="accion" value="eliminar">Eliminar</button>
-                    <a class="editar" href="{{ url_for('editar_producto', id=producto[0]) }}">Editar</a>
+                    <form method="post" action="/producto/consultar_producto">
+                        <input type="hidden" name="id" value="{{ producto[0] }}">
+                        <button class="eliminar" type="submit" name="accion" value="eliminar">Eliminar</button>
+                    </form> 
+                    <a class="editar" href="{{ url_for('editar_producto') }}">Editar</a>
+
+
                 </td>
             </tr>
             {% endfor %}

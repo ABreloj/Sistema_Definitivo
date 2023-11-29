@@ -229,7 +229,10 @@
                 <td>{{ usuario[4] }}</td>
                 <td>{{ usuario[5] }}</td>
                 <td class="acciones-form">
-                    <button class="eliminar" type="submit" name="accion" value="eliminar">Eliminar</button>
+                    <form method="post" action="/usuarios/consultar_usuarios/">
+                        <input type="hidden" name="id" value="{{ usuario[0] }}">
+                        <button class="eliminar" type="submit" name="accion" value="eliminar">Eliminar</button>
+                    </form>
                     <a class="editar" href="{{ url_for('editar_usuario', id=usuario[0]) }}">Editar</a>
                 </td>
             </tr>

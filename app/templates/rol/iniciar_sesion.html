@@ -132,7 +132,7 @@
                 <p class="sistema">Sistema Control de Punto de Venta "Abarrotes Flores"</p>
             </div>
             <h1>Iniciar Sesión</h1>
-            <form action="/iniciar_sesion" method="POST">
+            <form action="/iniciar_sesion" method="POST" novalidate>
                 <input type="text" placeholder="Usuario" class="usuario" name="usuario" required>
                 <input type="password" placeholder="Contraseña" class="contraseña" name="contraseña" required>
                 <div class="botones">
@@ -140,7 +140,13 @@
                 </div>
             </form>
         </div>
+        
     </div>
+
+    <div class="mensaje-error">
+        {{ mensaje }}
+    </div>
+
 
     <div class="pie-de-pagina">
         &copy; Copyright MAK
